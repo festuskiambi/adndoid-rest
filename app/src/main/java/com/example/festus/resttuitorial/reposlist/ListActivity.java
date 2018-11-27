@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.festus.resttuitorial.R;
+import com.example.festus.resttuitorial.viewModel.RepositoryListItem;
+
+import java.util.List;
 
 import javax.inject.Inject;
 

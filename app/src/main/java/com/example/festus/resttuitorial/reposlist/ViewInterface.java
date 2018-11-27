@@ -1,5 +1,9 @@
 package com.example.festus.resttuitorial.reposlist;
 
+import com.example.festus.resttuitorial.viewModel.RepositoryListItem;
+
+import java.util.List;
+
 /**
  * Created by Festus Kiambi on 11/24/18.
  */

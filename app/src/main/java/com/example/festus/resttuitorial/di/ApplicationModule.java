@@ -3,6 +3,8 @@ package com.example.festus.resttuitorial.di;
 import android.content.Context;
 
 import com.example.festus.resttuitorial.RestTuitorialApplication;
+import com.example.festus.resttuitorial.data.GithubRestAdapter;
+import com.example.festus.resttuitorial.data.UrlManager;
 import com.example.festus.resttuitorial.util.BaseSchedulerProvider;
 
 import java.util.concurrent.TimeUnit;
@@ -37,8 +39,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    GitHubRestAdapter provideRestAdapter(Retrofit retrofit){
-        return new GitHubRestAdapter(retrofit);
+    GithubRestAdapter  provideRestAdapter(Retrofit retrofit){
+        return new GithubRestAdapter(retrofit);
     }
 
     @Provides
@@ -57,7 +59,7 @@ public class ApplicationModule {
 
         return new Retrofit.Builder()
                 .client(client)
-                .baseUrl(UrlManager.API_HOST)
+                .baseUrl(UrlManager.HOST_URL)
                 .addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
