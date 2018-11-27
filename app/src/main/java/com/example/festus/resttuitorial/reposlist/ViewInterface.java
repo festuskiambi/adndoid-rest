@@ -1,6 +1,6 @@
 package com.example.festus.resttuitorial.reposlist;
 
-import com.example.festus.resttuitorial.viewModel.RepositoryListItem;
+import com.example.festus.resttuitorial.viewmodel.RepositoryListItem;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.festus.resttuitorial.viewModel;
+package com.example.festus.resttuitorial.viewmodel;
 
 import java.util.List;
 

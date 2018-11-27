@@ -29,6 +29,7 @@ public class RepositoryDataModel {
     }
 
     public String getCreated_at() {
+
         return created_at;
     }
 
@@ -36,10 +37,12 @@ public class RepositoryDataModel {
         final String avatar_url;
 
         public Owner(String avatar_url) {
+
             this.avatar_url = avatar_url;
         }
 
         public String getAvatar_url() {
+
             return avatar_url;
         }
     }
