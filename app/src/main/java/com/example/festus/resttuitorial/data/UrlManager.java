@@ -5,7 +5,7 @@ package com.example.festus.resttuitorial.data;
  */
 public class UrlManager {
 
-    final  String HOST_URL = "https://api.github.com";
-    final  String REPOS_URL = "/users/{user}/repos";
+    public static final String HOST_URL = "https://api.github.com";
+    public static final String REPOS_URL = "/users/{user}/repos";
 
 }
