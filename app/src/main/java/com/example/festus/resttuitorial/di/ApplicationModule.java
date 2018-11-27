@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.festus.resttuitorial.RestTuitorialApplication;
 import com.example.festus.resttuitorial.data.GithubRestAdapter;
+import com.example.festus.resttuitorial.data.RepositoryDataSourceImpl;
 import com.example.festus.resttuitorial.data.RepositoryDataSourceInterface;
 import com.example.festus.resttuitorial.data.UrlManager;
 import com.example.festus.resttuitorial.error.ErrorInterceptor;
