@@ -8,6 +8,7 @@ import com.example.festus.resttuitorial.viewmodel.ListViewModel;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.subscribers.DisposableSubscriber;
@@ -44,7 +45,7 @@ public class ListPresenter {
     private void getListFromDataSource(String user) {
         disposables.add(
                 dataSource.getUserRepositories(user)
-                        .observeOn(scheduler.getUiScheduler())
+                        .observeOn(AndroidSchedulers.mainThread())
                         .startWith(
                                 ListViewModel.loading()
                         )
@@ -67,7 +68,9 @@ public class ListPresenter {
                                 } else if (uiModel.isLoading()) {
                                     view.showLoadingIndicator();
                                 } else {
+
                                     view.setUpAdapterAndView(uiModel.getRepoList());
+
                                 }
                             }
 

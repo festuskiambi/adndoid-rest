@@ -1,5 +1,7 @@
 package com.example.festus.resttuitorial.data;
 
+import android.util.Log;
+
 import com.example.festus.resttuitorial.datamodel.RepositoryDataModel;
 import com.example.festus.resttuitorial.viewmodel.ListViewModel;
 import com.example.festus.resttuitorial.viewmodel.RepositoryListItem;
@@ -51,11 +53,13 @@ public class RepositoryDataSourceImpl implements RepositoryDataSourceInterface {
                                                     )
                                             );
                                         }
+
+
                                         return Flowable.just(ListViewModel.success(listItems));
 
                                     }
                                 }
-                        ).subscribeOn(Schedulers.io());
+                        ).subscribeOn(Schedulers.newThread());
 
     }
 }

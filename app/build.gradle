@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "$rootProject.buildToolsVersion"
     defaultConfig {
-        applicationId "forgettery.wiseass.com.githubrest"
+        applicationId "com.example.festus.resttuitorial"
         minSdkVersion "$rootProject.minSdkVersion"
         targetSdkVersion "$rootProject.targetSdkVersion"
         versionCode 1

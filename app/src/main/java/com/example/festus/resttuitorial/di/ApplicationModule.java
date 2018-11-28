@@ -25,7 +25,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
 /**
  * Created by Festus Kiambi on 11/24/18.
  */
-@Module(subcomponents = {RepositoryListSubModuleComponent.class})
+@Module(subcomponents = {RepositoryListSubComponent.class})
 public class ApplicationModule {
 
     private static final String REPOS = "/users/{user}/repos";

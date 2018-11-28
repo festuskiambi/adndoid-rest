@@ -1,10 +1,15 @@
 package com.example.festus.resttuitorial.reposlist;
 
+import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.festus.resttuitorial.R;
+import com.example.festus.resttuitorial.main.MainActivity;
 import com.example.festus.resttuitorial.viewmodel.RepositoryListItem;
 
 import java.util.List;
@@ -30,11 +36,11 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Vi
     private List<RepositoryListItem> listOfData;
 
     private LayoutInflater layoutInflater;
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
     private CustomAdapter adapter;
     private Toolbar toolbar;
     private String user;
-    private ContentLoadingProgressBar progressBar;
+     ContentLoadingProgressBar progressBar;
 
     @Inject
     ListPresenter listPresenter;
@@ -68,27 +74,66 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Vi
 
     @Override
     public void onClick(View v) {
+        startMainActivity();
+
 
     }
 
     @Override
-    public void setUpAdapterAndView(List<RepositoryListItem> listOfData) {
+    public void setUpAdapterAndView(List<RepositoryListItem> listOfDat) {
+        Log.d("returned list data  ui", "got to this method");
+
+        this.listOfData = listOfDat;
+
+        progressBar.hide();
+        recyclerView.setVisibility(View.VISIBLE);
+
+
+
+        Log.d("returned list data  ui", String.valueOf(listOfDat.size()));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(layoutManager);
+
+
+        adapter = new CustomAdapter();
+        recyclerView.setAdapter(adapter);
+
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(
+                recyclerView.getContext(),
+                layoutManager.getOrientation()
+        );
+
+        itemDecoration.setDrawable(
+                ContextCompat.getDrawable(
+                        ListActivity.this,
+                        R.drawable.divider_white
+                )
+        );
+
+        recyclerView.addItemDecoration(
+                itemDecoration
+        );
 
     }
 
     @Override
     public void showErrorMessage(String error) {
 
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+
     }
 
     @Override
     public void startMainActivity() {
-
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void showLoadingIndicator() {
-
+        progressBar.show();
+        recyclerView.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -100,22 +145,26 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Vi
     @Override
     protected void onStart() {
         super.onStart();
-
         listPresenter.start(user);
+
     }
 
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
+
+
         @Override
         public CustomAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = layoutInflater.inflate(R.layout.item_data, parent, false);
+
             return new CustomViewHolder(v);
         }
 
 
         @Override
         public void onBindViewHolder(CustomAdapter.CustomViewHolder holder, int position) {
+
             RepositoryListItem repo = listOfData.get(position);
 
             Glide.with(ListActivity.this)
@@ -134,6 +183,8 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Vi
 
         @Override
         public int getItemCount() {
+
+
             return listOfData.size();
         }
 

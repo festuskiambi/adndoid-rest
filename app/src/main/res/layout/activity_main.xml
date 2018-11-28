@@ -5,7 +5,7 @@
     android:id="@+id/root_list_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.wiseassblog.androidresttutorial.main.MainActivity"
+    tools:context="com.example.festus.resttuitorial.main.MainActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="25dp">
 
@@ -34,7 +34,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:hint="BracketCove"
+        android:hint="festuskiambi"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.festus.resttuitorial">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:name=".RestTuitorialApplication"
         android:allowBackup="true"
@@ -19,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".reposlist.ListActivity"></activity>
+        <activity android:name=".reposlist.ListActivity"/>
     </application>
 
 </manifest>
